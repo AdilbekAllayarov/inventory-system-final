@@ -1,0 +1,101 @@
+{
+  "translation": {
+    "app_title": "Inventarizatsiya Boshqaruv Tizimi",
+    "login": {
+      "title": "Kirish",
+      "username": "Foydalanuvchi nomi",
+      "password": "Parol",
+      "submit": "Kirish",
+      "welcome": "Xush kelibsiz!",
+      "error": "Foydalanuvchi nomi yoki parol noto'g'ri"
+    },
+    "nav": {
+      "dashboard": "Boshqaruv Paneli",
+      "products": "Mahsulotlar",
+      "stock_in": "Qabul Qilish",
+      "stock_out": "Jo'natish",
+      "logout": "Chiqish"
+    },
+    "dashboard": {
+      "title": "Boshqaruv Paneli",
+      "total_products": "Jami Mahsulotlar",
+      "low_stock_items": "Kam Qolgan Mahsulotlar",
+      "total_value": "Jami Qiymat",
+      "categories": "Kategoriyalar",
+      "recent_products": "So'nggi Mahsulotlar",
+      "stock_status": "Zaxira Holati"
+    },
+    "products": {
+      "title": "Mahsulotlar",
+      "add_product": "Mahsulot Qo'shish",
+      "search": "Mahsulotlarni qidirish...",
+      "filter_category": "Kategoriya bo'yicha filtr",
+      "all_categories": "Barcha Kategoriyalar",
+      "name": "Nomi",
+      "category": "Kategoriya",
+      "price": "Narxi",
+      "stock": "Zaxira",
+      "actions": "Amallar",
+      "edit": "Tahrirlash",
+      "delete": "O'chirish",
+      "confirm_delete": "Ushbu mahsulotni o'chirishni xohlaysizmi?",
+      "no_products": "Mahsulotlar topilmadi"
+    },
+    "add_product": {
+      "title": "Mahsulot Qo'shish",
+      "name": "Mahsulot Nomi",
+      "category": "Kategoriya",
+      "price": "Narxi",
+      "stock": "Boshlang'ich Zaxira",
+      "submit": "Mahsulot Qo'shish",
+      "cancel": "Bekor Qilish",
+      "success": "Mahsulot muvaffaqiyatli qo'shildi",
+      "error": "Mahsulot qo'shishda xatolik"
+    },
+    "edit_product": {
+      "title": "Mahsulotni Tahrirlash",
+      "name": "Mahsulot Nomi",
+      "category": "Kategoriya",
+      "price": "Narxi",
+      "stock": "Zaxira",
+      "submit": "Mahsulotni Yangilash",
+      "cancel": "Bekor Qilish",
+      "success": "Mahsulot muvaffaqiyatli yangilandi",
+      "error": "Mahsulotni yangilashda xatolik"
+    },
+    "stock_in": {
+      "title": "Qabul Qilish",
+      "select_product": "Mahsulotni Tanlash",
+      "quantity": "Miqdori",
+      "current_stock": "Joriy Zaxira",
+      "new_stock": "Yangi Zaxira",
+      "submit": "Zaxira Qo'shish",
+      "cancel": "Bekor Qilish",
+      "success": "Zaxira muvaffaqiyatli qo'shildi",
+      "error": "Zaxira qo'shishda xatolik"
+    },
+    "stock_out": {
+      "title": "Jo'natish",
+      "select_product": "Mahsulotni Tanlash",
+      "quantity": "Miqdori",
+      "current_stock": "Joriy Zaxira",
+      "new_stock": "Yangi Zaxira",
+      "submit": "Zaxirani O'chirish",
+      "cancel": "Bekor Qilish",
+      "success": "Zaxira muvaffaqiyatli o'chirildi",
+      "error": "Zaxirani o'chirishda xatolik",
+      "insufficient": "Yetarli zaxira yo'q"
+    },
+    "common": {
+      "loading": "Yuklanmoqda...",
+      "save": "Saqlash",
+      "cancel": "Bekor Qilish",
+      "delete": "O'chirish",
+      "edit": "Tahrirlash",
+      "back": "Orqaga",
+      "yes": "Ha",
+      "no": "Yo'q",
+      "currency": "so'm"
+    }
+  }
+}

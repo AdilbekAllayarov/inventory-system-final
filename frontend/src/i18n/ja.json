@@ -1,0 +1,101 @@
+{
+  "translation": {
+    "app_title": "在庫管理システム",
+    "login": {
+      "title": "ログイン",
+      "username": "ユーザー名",
+      "password": "パスワード",
+      "submit": "ログイン",
+      "welcome": "おかえりなさい！",
+      "error": "ユーザー名またはパスワードが正しくありません"
+    },
+    "nav": {
+      "dashboard": "ダッシュボード",
+      "products": "商品",
+      "stock_in": "入庫",
+      "stock_out": "出庫",
+      "logout": "ログアウト"
+    },
+    "dashboard": {
+      "title": "ダッシュボード",
+      "total_products": "総商品数",
+      "low_stock_items": "在庫不足商品",
+      "total_value": "総在庫価値",
+      "categories": "カテゴリー",
+      "recent_products": "最近の商品",
+      "stock_status": "在庫状況"
+    },
+    "products": {
+      "title": "商品",
+      "add_product": "商品追加",
+      "search": "商品を検索...",
+      "filter_category": "カテゴリーでフィルター",
+      "all_categories": "全てのカテゴリー",
+      "name": "商品名",
+      "category": "カテゴリー",
+      "price": "価格",
+      "stock": "在庫",
+      "actions": "操作",
+      "edit": "編集",
+      "delete": "削除",
+      "confirm_delete": "この商品を削除してもよろしいですか？",
+      "no_products": "商品が見つかりません"
+    },
+    "add_product": {
+      "title": "商品追加",
+      "name": "商品名",
+      "category": "カテゴリー",
+      "price": "価格",
+      "stock": "初期在庫",
+      "submit": "商品を追加",
+      "cancel": "キャンセル",
+      "success": "商品を追加しました",
+      "error": "商品の追加に失敗しました"
+    },
+    "edit_product": {
+      "title": "商品編集",
+      "name": "商品名",
+      "category": "カテゴリー",
+      "price": "価格",
+      "stock": "在庫",
+      "submit": "商品を更新",
+      "cancel": "キャンセル",
+      "success": "商品を更新しました",
+      "error": "商品の更新に失敗しました"
+    },
+    "stock_in": {
+      "title": "入庫",
+      "select_product": "商品を選択",
+      "quantity": "数量",
+      "current_stock": "現在の在庫",
+      "new_stock": "新しい在庫",
+      "submit": "在庫を追加",
+      "cancel": "キャンセル",
+      "success": "在庫を追加しました",
+      "error": "在庫の追加に失敗しました"
+    },
+    "stock_out": {
+      "title": "出庫",
+      "select_product": "商品を選択",
+      "quantity": "数量",
+      "current_stock": "現在の在庫",
+      "new_stock": "新しい在庫",
+      "submit": "在庫を削除",
+      "cancel": "キャンセル",
+      "success": "在庫を削除しました",
+      "error": "在庫の削除に失敗しました",
+      "insufficient": "在庫が不足しています"
+    },
+    "common": {
+      "loading": "読み込み中...",
+      "save": "保存",
+      "cancel": "キャンセル",
+      "delete": "削除",
+      "edit": "編集",
+      "back": "戻る",
+      "yes": "はい",
+      "no": "いいえ",
+      "currency": "¥"
+    }
+  }
+}

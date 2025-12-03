@@ -1,0 +1,101 @@
+{
+  "translation": {
+    "app_title": "Inventory Management System",
+    "login": {
+      "title": "Login",
+      "username": "Username",
+      "password": "Password",
+      "submit": "Login",
+      "welcome": "Welcome back!",
+      "error": "Invalid username or password"
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "products": "Products",
+      "stock_in": "Stock In",
+      "stock_out": "Stock Out",
+      "logout": "Logout"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "total_products": "Total Products",
+      "low_stock_items": "Low Stock Items",
+      "total_value": "Total Inventory Value",
+      "categories": "Categories",
+      "recent_products": "Recent Products",
+      "stock_status": "Stock Status"
+    },
+    "products": {
+      "title": "Products",
+      "add_product": "Add Product",
+      "search": "Search products...",
+      "filter_category": "Filter by category",
+      "all_categories": "All Categories",
+      "name": "Name",
+      "category": "Category",
+      "price": "Price",
+      "stock": "Stock",
+      "actions": "Actions",
+      "edit": "Edit",
+      "delete": "Delete",
+      "confirm_delete": "Are you sure you want to delete this product?",
+      "no_products": "No products found"
+    },
+    "add_product": {
+      "title": "Add Product",
+      "name": "Product Name",
+      "category": "Category",
+      "price": "Price",
+      "stock": "Initial Stock",
+      "submit": "Add Product",
+      "cancel": "Cancel",
+      "success": "Product added successfully",
+      "error": "Failed to add product"
+    },
+    "edit_product": {
+      "title": "Edit Product",
+      "name": "Product Name",
+      "category": "Category",
+      "price": "Price",
+      "stock": "Stock",
+      "submit": "Update Product",
+      "cancel": "Cancel",
+      "success": "Product updated successfully",
+      "error": "Failed to update product"
+    },
+    "stock_in": {
+      "title": "Stock In",
+      "select_product": "Select Product",
+      "quantity": "Quantity",
+      "current_stock": "Current Stock",
+      "new_stock": "New Stock",
+      "submit": "Add Stock",
+      "cancel": "Cancel",
+      "success": "Stock added successfully",
+      "error": "Failed to add stock"
+    },
+    "stock_out": {
+      "title": "Stock Out",
+      "select_product": "Select Product",
+      "quantity": "Quantity",
+      "current_stock": "Current Stock",
+      "new_stock": "New Stock",
+      "submit": "Remove Stock",
+      "cancel": "Cancel",
+      "success": "Stock removed successfully",
+      "error": "Failed to remove stock",
+      "insufficient": "Insufficient stock"
+    },
+    "common": {
+      "loading": "Loading...",
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "edit": "Edit",
+      "back": "Back",
+      "yes": "Yes",
+      "no": "No",
+      "currency": "$"
+    }
+  }
+}
