@@ -81,7 +81,7 @@ const Login = () => {
             </Form>
 
             <div className="mt-3 text-muted small text-center">
-              Default: admin / Admin!2025#Secure
+              Default: admin / Admin!2025
             </div>
           </Card.Body>
         </Card>
