@@ -43,7 +43,7 @@ def startup_event():
     db = next(get_db())
     try:
         # Always ensure admin exists with the expected strong password
-        strong_default_password = "Admin!2025#Secure"
+        strong_default_password = "Admin!2025"
         admin = db.query(models.User).filter(models.User.username == "admin").first()
         if not admin:
             admin = models.User(
@@ -53,13 +53,8 @@ def startup_event():
             )
             db.add(admin)
             db.commit()
-            print("Default admin user created: admin/Admin!2025#Secure")
-        else:
-            # Reset admin password to the strong default to guarantee login works
-            admin.password = get_password_hash(strong_default_password)
-            db.add(admin)
-            db.commit()
-            print("Default admin user password reset: admin/Admin!2025#Secure")
+            print("Default admin user created: admin/Admin!2025")
+        # Password reset disabled - admin password will not be reset on restart
     finally:
         db.close()
 
