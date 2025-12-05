@@ -27,9 +27,10 @@ Full-stack inventory management application with React frontend and FastAPI back
 ### Backend
 - Python FastAPI
 - SQLAlchemy ORM
-- SQLite database
+- SQLite (development) / PostgreSQL (production)
 - JWT authentication
 - Pydantic schemas
+- psycopg2-binary (PostgreSQL driver)
 
 ## Project Structure
 
@@ -107,7 +108,9 @@ Frontend will run on `http://localhost:3000`
 ## Default Login Credentials
 
 - Username: `admin`
-- Password: `admin123`
+- Password: `Admin!2025#Secure`
+
+⚠️ **Important:** Change the password after first login in production!
 
 ## API Endpoints
 
@@ -137,20 +140,28 @@ Language can be switched using the language selector in the navigation bar.
 
 ## Deployment
 
-### Frontend (Vercel)
+📚 **For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)**
 
-1. Push code to GitHub
-2. Connect repository to Vercel
-3. Set environment variable:
-   - `VITE_API_URL`: Your backend API URL
+### Quick Deploy Summary
 
-### Backend (Render)
+**Backend (Render.com):**
+1. Create PostgreSQL database on Render
+2. Create Web Service with these settings:
+   - Build: `pip install -r requirements.txt`
+   - Start: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+   - Environment Variables:
+     - `DATABASE_URL` (PostgreSQL URL from Render)
+     - `ALLOWED_ORIGINS` (your Vercel frontend URL)
+     - `SECRET_KEY` (generate with: `python3 -c "import secrets; print(secrets.token_hex(32))"`)
 
-1. Push code to GitHub
-2. Create new Web Service on Render
-3. Configure:
-   - Build Command: `pip install -r requirements.txt`
-   - Start Command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+**Frontend (Vercel):**
+1. Connect GitHub repository to Vercel
+2. Set root directory to `frontend`
+3. Add environment variable:
+   - `VITE_API_URL` (your Render backend URL)
+4. Deploy
+
+**Full step-by-step guide:** [DEPLOYMENT.md](DEPLOYMENT.md)
 
 ## Development Notes
 
