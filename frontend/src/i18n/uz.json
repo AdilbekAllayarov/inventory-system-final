@@ -28,6 +28,10 @@
     "products": {
       "title": "Mahsulotlar",
       "add_product": "Mahsulot Qo'shish",
+      "export_csv": "CSV Eksport",
+      "import_csv": "CSV Import",
+      "import_success": "{{count}} ta mahsulot import qilindi",
+      "import_error": "CSV import qilishda xatolik",
       "search": "Mahsulotlarni qidirish...",
       "filter_category": "Kategoriya bo'yicha filtr",
       "all_categories": "Barcha Kategoriyalar",

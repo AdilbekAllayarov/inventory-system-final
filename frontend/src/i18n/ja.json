@@ -28,6 +28,10 @@
     "products": {
       "title": "商品",
       "add_product": "商品追加",
+      "export_csv": "CSVエクスポート",
+      "import_csv": "CSVインポート",
+      "import_success": "{{count}}件の商品をインポートしました",
+      "import_error": "CSVのインポートに失敗しました",
       "search": "商品を検索...",
       "filter_category": "カテゴリーでフィルター",
       "all_categories": "全てのカテゴリー",

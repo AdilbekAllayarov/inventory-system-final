@@ -28,6 +28,10 @@
     "products": {
       "title": "Products",
       "add_product": "Add Product",
+      "export_csv": "Export CSV",
+      "import_csv": "Import CSV",
+      "import_success": "Successfully imported {{count}} products",
+      "import_error": "Failed to import CSV",
       "search": "Search products...",
       "filter_category": "Filter by category",
       "all_categories": "All Categories",

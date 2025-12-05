@@ -75,8 +75,6 @@ const Products = () => {
         console.error('Failed to delete product:', error);
       }
     }
-  };
-
   const getStockBadgeClass = (stock) => {
     if (stock < 10) return 'danger';
     if (stock < 50) return 'warning';
@@ -95,61 +93,6 @@ const Products = () => {
       link.setAttribute('download', 'products.csv');
       document.body.appendChild(link);
       link.click();
-      link.remove();
-      
-      setAlert({ type: 'success', message: 'CSV exported successfully' });
-      setTimeout(() => setAlert(null), 3000);
-    } catch (error) {
-      console.error('Failed to export CSV:', error);
-      setAlert({ type: 'danger', message: 'Failed to export CSV' });
-      setTimeout(() => setAlert(null), 3000);
-    }
-  };
-
-  const handleImportCSV = async (event) => {
-    const file = event.target.files[0];
-    if (!file) return;
-
-    const formData = new FormData();
-    formData.append('file', file);
-
-    try {
-      const response = await api.post('/products/import/csv', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-      
-      setAlert({ 
-        type: 'success', 
-        message: t('products.import_success', { count: response.data.imported })
-      });
-      setTimeout(() => setAlert(null), 3000);
-      
-      fetchProducts();
-      
-      if (fileInputRef.current) {
-        fileInputRef.current.value = '';
-      }
-    } catch (error) {
-      console.error('Failed to import CSV:', error);
-      setAlert({ type: 'danger', message: t('products.import_error') });
-      setTimeout(() => setAlert(null), 3000);
-    }
-  };
-
-  if (loading) {
-    return <Loader />;
-  }
-
-  return (
-    <>
-      <Navbar />
-      <Container fluid>
-        <Row>
-          <Col md={2} className="p-0">
-            <Sidebar />
-          </Col>
           <Col md={10} className="main-content p-4">
             <div className="d-flex justify-content-between align-items-center mb-4">
               <h2>{t('products.title')}</h2>
@@ -187,9 +130,64 @@ const Products = () => {
               </Alert>
             )}
 
-            <Card>
+  const handleImportCSV = async (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const response = await api.post('/products/import/csv', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      
+      setAlert({ 
+        type: 'success', 
+        message: t('products.import_success', { count: response.data.imported })
+      });
+      setTimeout(() => setAlert(null), 3000);
+      
+      fetchProducts();
+      
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    } catch (error) {
+      console.error('Failed to import CSV:', error);
+      setAlert({ type: 'danger', message: t('products.import_error') });
+      setTimeout(() => setAlert(null), 3000);
+    }
+  };if (stock < 50) return 'warning';
+    return 'success';
+  };
+
+  if (loading) return <Loader />;
+
+  return (
+    <div>
+      <Navbar />
+      <Container fluid>
+        <Row>
+          <Col md={2} className="p-0">
+            <Sidebar />
+          </Col>
+          <Col md={10} className="main-content p-4">
+            <div className="d-flex justify-content-between align-items-center mb-4">
+              <h2>{t('products.title')}</h2>
+              <Link to="/products/add">
+                <Button variant="primary">
+                  <FaPlus className="me-2" />
+                  {t('products.add_product')}
+                </Button>
+              </Link>
+            </div>
+
+            <Card className="mb-4">
               <Card.Body>
-                <Row className="mb-3">
+                <Row>
                   <Col md={6}>
                     <Form.Control
                       type="text"
@@ -212,52 +210,64 @@ const Products = () => {
                     </Form.Select>
                   </Col>
                 </Row>
+              </Card.Body>
+            </Card>
 
-                <Table striped bordered hover responsive>
-                  <thead>
-                    <tr>
-                      <th>{t('products.name')}</th>
-                      <th>{t('products.category')}</th>
-                      <th>{t('products.price')}</th>
-                      <th>{t('products.stock')}</th>
-                      <th>{t('products.actions')}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filteredProducts.map((product) => (
-                      <tr key={product.id}>
-                        <td>{product.name}</td>
-                        <td>{product.category}</td>
-                        <td>{CURRENCY_SYMBOL}{product.price.toFixed(2)}</td>
-                        <td>
-                          <Badge bg={getStockBadgeClass(product.stock)}>
-                            {product.stock}
-                          </Badge>
-                        </td>
-                        <td>
-                          <Link to={`/products/edit/${product.id}`}>
-                            <Button variant="warning" size="sm" className="me-2">
-                              <FaEdit />
-                            </Button>
-                          </Link>
-                          <Button
-                            variant="danger"
-                            size="sm"
-                            onClick={() => handleDelete(product.id)}
-                          >
-                            <FaTrash />
-                          </Button>
-                        </td>
+            <Card>
+              <Card.Body>
+                {filteredProducts.length === 0 ? (
+                  <div className="text-center py-5">
+                    <p className="text-muted">{t('products.no_products')}</p>
+                  </div>
+                ) : (
+                  <Table responsive hover>
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>{t('products.name')}</th>
+                        <th>{t('products.category')}</th>
+                        <th>{t('products.price')}</th>
+                        <th>{t('products.stock')}</th>
+                        <th>{t('products.actions')}</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </Table>
+                    </thead>
+                    <tbody>
+                      {filteredProducts.map((product) => (
+                        <tr key={product.id}>
+                          <td>{product.id}</td>
+                          <td>{product.name}</td>
+                          <td>{product.category}</td>
+                          <td>{CURRENCY_SYMBOL}{product.price.toFixed(2)}</td>
+                          <td>
+                            <Badge bg={getStockBadgeClass(product.stock)}>
+                              {product.stock}
+                            </Badge>
+                          </td>
+                          <td>
+                            <Link to={`/products/edit/${product.id}`}>
+                              <Button variant="outline-primary" size="sm" className="me-2">
+                                <FaEdit />
+                              </Button>
+                            </Link>
+                            <Button
+                              variant="outline-danger"
+                              size="sm"
+                              onClick={() => handleDelete(product.id)}
+                            >
+                              <FaTrash />
+                            </Button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
+                )}
               </Card.Body>
             </Card>
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 };
 
