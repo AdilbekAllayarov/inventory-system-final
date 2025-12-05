@@ -10,6 +10,7 @@ import api from '../services/api';
 const StockIn = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [quantity, setQuantity] = useState('');
@@ -78,13 +79,13 @@ const StockIn = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar onMenuToggle={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />
       <Container fluid>
         <Row>
-          <Col md={2} className="p-0">
-            <Sidebar />
+          <Col lg={2} className="p-0">
+            <Sidebar show={menuOpen} handleClose={() => setMenuOpen(false)} />
           </Col>
-          <Col md={10} className="main-content p-4">
+          <Col lg={10} className="main-content p-4">
             <h2 className="mb-4">{t('stock_in.title')}</h2>
 
             <Card>

@@ -11,6 +11,7 @@ import api from '../services/api';
 
 const Products = () => {
   const { t } = useTranslation();
+  const [menuOpen, setMenuOpen] = useState(false);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -144,16 +145,16 @@ const Products = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar onMenuToggle={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />
       <Container fluid>
         <Row>
-          <Col md={2} className="p-0">
-            <Sidebar />
+          <Col lg={2} className="p-0">
+            <Sidebar show={menuOpen} handleClose={() => setMenuOpen(false)} />
           </Col>
-          <Col md={10} className="main-content p-4">
-            <div className="d-flex justify-content-between align-items-center mb-4">
-              <h2>{t('products.title')}</h2>
-              <div className="d-flex gap-2">
+          <Col lg={10} className="main-content p-4">
+            <div className="d-flex justify-content-between align-items-center mb-4 header-actions">
+              <h2 className="mb-0">{t('products.title')}</h2>
+              <div className="d-flex gap-2 action-buttons">
                 <Button variant="success" onClick={handleExportCSV}>
                   <FaFileExport className="me-2" />
                   {t('products.export_csv')}

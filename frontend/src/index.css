@@ -38,6 +38,10 @@ code {
   background-color: #f8f9fa;
 }
 
+.navbarBg {
+  background-color: rgba(0, 0, 0, 0.953);
+}
+
 .card {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
@@ -93,6 +97,88 @@ code {
 .high-stock {
   background-color: #198754;
 }
-.navbarBg {
-  background-color: rgba(0, 0, 0, 0.953);
+
+/* Responsive layout tweaks */
+@media (max-width: 992px) {
+  .sidebar {
+    min-height: auto;
+    display: none;
+  }
+
+  .sidebar .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .sidebar .nav-link {
+    padding: 0.5rem 0.75rem;
+    white-space: nowrap;
+  }
+
+  .main-content {
+    padding: 1rem !important;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 0.75rem;
+  }
+
+  .header-actions .action-buttons {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  .sidebar-mobile-link {
+    color: rgba(0, 0, 0, 0.75) !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 0.25rem;
+  }
+
+  .sidebar-mobile-link:hover {
+    color: #000 !important;
+    background-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .sidebar-mobile-link.active {
+    color: #fff !important;
+    background-color: #0d6efd !important;
+  }
+
+  .offcanvas {
+    width: 75% !important;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-content h2 {
+    font-size: 1.25rem;
+  }
+
+  .table {
+    font-size: 0.95rem;
+  }
+
+  .table td,
+  .table th {
+    white-space: nowrap;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  .navbarBg .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .offcanvas {
+    width: 80% !important;
+    max-width: 280px;
+  }
 }

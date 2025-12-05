@@ -10,6 +10,7 @@ import api from '../services/api';
 
 const Dashboard = () => {
   const { t } = useTranslation();
+  const [menuOpen, setMenuOpen] = useState(false);
   const [stats, setStats] = useState({
     totalProducts: 0,
     lowStockItems: 0,
@@ -58,13 +59,13 @@ const Dashboard = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar onMenuToggle={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />
       <Container fluid>
         <Row>
-          <Col md={2} className="p-0">
-            <Sidebar />
+          <Col lg={2} className="p-0">
+            <Sidebar show={menuOpen} handleClose={() => setMenuOpen(false)} />
           </Col>
-          <Col md={10} className="main-content p-4">
+          <Col lg={10} className="main-content p-4">
             <h2 className="mb-4">{t('dashboard.title')}</h2>
 
             <Row className="mb-4">

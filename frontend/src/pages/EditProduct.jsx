@@ -11,6 +11,7 @@ const EditProduct = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { id } = useParams();
+  const [menuOpen, setMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     category: '',
@@ -67,13 +68,13 @@ const EditProduct = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar onMenuToggle={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />
       <Container fluid>
         <Row>
-          <Col md={2} className="p-0">
-            <Sidebar />
+          <Col lg={2} className="p-0">
+            <Sidebar show={menuOpen} handleClose={() => setMenuOpen(false)} />
           </Col>
-          <Col md={10} className="main-content p-4">
+          <Col lg={10} className="main-content p-4">
             <h2 className="mb-4">{t('edit_product.title')}</h2>
 
             <Card>
