@@ -26,7 +26,7 @@ import os
 
 allowed_origins = os.getenv(
     "ALLOWED_ORIGINS",
-    "http://localhost:3000,http://localhost:5173"
+    "http://localhost:3000,http://localhost:5173,https://inventory-system-final.vercel.app"
 ).split(",")
 
 app.add_middleware(
