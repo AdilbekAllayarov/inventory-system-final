@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card, Badge, Table } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { FaBoxes, FaExclamationTriangle, FaDollarSign, FaTags } from 'react-icons/fa';
 import { CURRENCY_SYMBOL } from '../config/constants';
@@ -50,9 +50,9 @@ const Dashboard = () => {
   };
 
   const getStockBadgeClass = (stock) => {
-    if (stock < 10) return 'low-stock';
-    if (stock < 50) return 'medium-stock';
-    return 'high-stock';
+    if (stock < 10) return 'danger';
+    if (stock < 50) return 'warning';
+    return 'success';
   };
 
   if (loading) return <Loader />;
@@ -128,37 +128,65 @@ const Dashboard = () => {
 
             <Row>
               <Col md={12}>
-                <Card>
-                  <Card.Header>
-                    <h5>{t('dashboard.recent_products')}</h5>
+                <Card className="shadow-sm">
+                  <Card.Header className="bg-primary text-white">
+                    <h5 className="mb-0">{t('dashboard.recent_products')}</h5>
                   </Card.Header>
-                  <Card.Body>
-                    <table className="table table-hover">
-                      <thead>
-                        <tr>
-                          <th>{t('products.name')}</th>
-                          <th>{t('products.category')}</th>
-                          <th>{t('products.price')}</th>
-                          <th>{t('products.stock')}</th>
-                          <th>{t('dashboard.stock_status')}</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {recentProducts.map((product) => (
-                          <tr key={product.id}>
-                            <td>{product.name}</td>
-                            <td>{product.category}</td>
-                            <td>{CURRENCY_SYMBOL}{product.price.toFixed(2)}</td>
-                            <td>{product.stock}</td>
-                            <td>
-                              <span className={`badge stock-badge ${getStockBadgeClass(product.stock)}`}>
-                                {product.stock < 10 ? 'Low' : product.stock < 50 ? 'Medium' : 'High'}
-                              </span>
-                            </td>
+                  <Card.Body className="p-0">
+                    <div className="table-responsive">
+                      <Table striped bordered hover className="mb-0">
+                        <thead className="table-light">
+                          <tr>
+                            <th className="text-center" style={{ width: '5%' }}>#</th>
+                            <th>{t('products.name')}</th>
+                            <th className="text-center">{t('products.category')}</th>
+                            <th className="text-end">{t('products.price')}</th>
+                            <th className="text-center">{t('products.stock')}</th>
+                            <th className="text-center">{t('dashboard.stock_status')}</th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                        </thead>
+                        <tbody>
+                          {recentProducts.length > 0 ? (
+                            recentProducts.map((product, idx) => (
+                              <tr key={product.id} className="align-middle">
+                                <td className="text-center text-muted small">{idx + 1}</td>
+                                <td>
+                                  <strong>{product.name}</strong>
+                                </td>
+                                <td className="text-center">
+                                  <span className="badge bg-info">{product.category}</span>
+                                </td>
+                                <td className="text-end">
+                                  <strong>{CURRENCY_SYMBOL}{product.price.toFixed(2)}</strong>
+                                </td>
+                                <td className="text-center">
+                                  <Badge bg={getStockBadgeClass(product.stock)}>
+                                    {product.stock} {product.stock === 1 ? 'item' : 'items'}
+                                  </Badge>
+                                </td>
+                                <td className="text-center">
+                                  {product.stock < 10 && (
+                                    <Badge bg="danger">Low Stock</Badge>
+                                  )}
+                                  {product.stock >= 10 && product.stock < 50 && (
+                                    <Badge bg="warning" text="dark">Medium</Badge>
+                                  )}
+                                  {product.stock >= 50 && (
+                                    <Badge bg="success">Good</Badge>
+                                  )}
+                                </td>
+                              </tr>
+                            ))
+                          ) : (
+                            <tr>
+                              <td colSpan="6" className="text-center text-muted py-4">
+                                No products yet
+                              </td>
+                            </tr>
+                          )}
+                        </tbody>
+                      </Table>
+                    </div>
                   </Card.Body>
                 </Card>
               </Col>
